@@ -12,9 +12,11 @@ const app = Vue.createApp({
     reduce(num) {
       this.counter = this.counter - num;
     },
-    setName(event, lastName) {
-      //this.name = `${event.target.value} ${lastName}`;
-      this.name = event.target.value;
+    outputFullname () {
+      if (this.name === '') {
+        return '';
+      }
+      return `${this.name} Yepez`;
     },
     resetInput () {
       this.name = '';
