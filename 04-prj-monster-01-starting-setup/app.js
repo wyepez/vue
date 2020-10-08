@@ -20,6 +20,17 @@ const app = Vue.createApp({
     mayUseSpecialAttack() {
       return this.currentRound % 3 !== 0;
     },
+    winner() {
+      if (this.playerHealth > 0 && this.monsterHealth > 0) {
+        return null;
+      } else if (this.playerHealth <= 0 && this.monsterHealth <= 0) {
+        return 'draw';
+      } else if (this.monsterHealth <= 0) {
+        return 'player';
+      } else {
+        return 'monster';
+      }
+    },
   },
   methods: {
     attackMonster() {
